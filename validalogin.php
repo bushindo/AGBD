@@ -15,23 +15,23 @@ if ($conexion->connect_errno) {
 
 //evitamos un sql-injection
 $usuario = $conexion->real_escape_string($usuario);
-$pass = $conexion->real_escape_string($pass);
+$password = $conexion->real_escape_string($password);
 
 $sql = "SELECT * "
         . "FROM user "
-        . "WHERE  username='$usuario' AND password=SHA2('$pass')";
+        . "WHERE  username='$usuario' AND password=SHA2('$password')512";
 
 $result = $conexion->query($sql);
 $validado = FALSE;
     echo '<FORM action="calificar.php" method="post">';
-    //añadimos información del usuario
-echo "<input type=\"hidden\" name=\"usuario\" value=\"$id\">";
 while ($fila = $result->fetch_assoc()){
     //hay un usuario que cumple
     $validado = TRUE;
     $email=$fila['email'];
     $id_user = $fila['clave_usuario'];
 }
+ //añadimos información del usuario
+echo "<input type=\"hidden\" name=\"usuario\" value=\"$id_user\">";
 if($validado){
     echo "Bienvenido al cuestionario<br>";
 // Ahora toca buscar las preguntas para ponerlas en pantalla dentro de un form
