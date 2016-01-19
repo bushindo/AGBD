@@ -19,7 +19,7 @@ $password = $conexion->real_escape_string($password);
 
 $sql = "SELECT * "
         . "FROM user "
-        . "WHERE  username='$usuario' AND password=SHA2('$password',512)";
+        . "WHERE  username='$usuario' AND password=SHA2('$password',512)"; 
 
 $result = $conexion->query($sql);
 $validado = FALSE;

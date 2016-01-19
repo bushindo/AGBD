@@ -29,7 +29,7 @@ if (empty($p2)) $p2=0;
 if (empty($p3)) $p3=0;
 if (empty($p4)) $p4=0;
 
-//obtener las respuesas correctas y erróneas 
+//obtener las respuesas correctas y erróneas
 $sql = "SELECT preguntas.opcion_correcta as a, respuestas.respuesta as b "
         . "FROM preguntas, respuestas "
         . "WHERE respuestas.id_user=$usuario AND 
