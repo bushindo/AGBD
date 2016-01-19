@@ -23,6 +23,9 @@ $sql = "SELECT * "
 
 $result = $conexion->query($sql);
 $validado = FALSE;
+    echo '<FORM action="calificar.php" method="post">';
+    //añadimos información del usuario
+echo "<input type=\"hidden\" name=\"usuario\" value=\"$id\">";
 while ($fila = $result->fetch_assoc()){
     //hay un usuario que cumple
     $validado = TRUE;
