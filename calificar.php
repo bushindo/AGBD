@@ -1,5 +1,5 @@
 <?php
-
+// recogemos la información de los botones de tipo radio
 $p1 = $_REQUEST['p1'];
 $p2 = $_REQUEST['p2'];
 $p3 = $_REQUEST['p3'];
@@ -32,8 +32,7 @@ if (empty($p4)) $p4=0;
 //obtener las respuesas correctas y erróneas 
 $sql = "SELECT preguntas.opcion_correcta as a, respuestas.respuesta as b "
         . "FROM preguntas, respuestas "
-        . "WHERE respuestas.id_user=$usuario AND 
-preguntas.id=respuestas.id_pregunta ";
+        . "WHERE respuestas.id_user= $usuario AND preguntas.id=respuestas.id_pregunta ";
 echo $sql . "<br>";
 $result = $conexion->query($sql);
 $blanco = 0;

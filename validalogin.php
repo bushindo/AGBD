@@ -24,14 +24,15 @@ $sql = "SELECT * "
 $result = $conexion->query($sql);
 $validado = FALSE;
     echo '<FORM action="calificar.php" method="post">';
+    //añadimos información del usuario
+echo "<input type=\"hidden\" name=\"usuario\" value=\"$id_user\">"; 
 while ($fila = $result->fetch_assoc()){
     //hay un usuario que cumple
     $validado = TRUE;
     $email=$fila['email'];
     $id_user = $fila['clave_usuario'];
 }
- //añadimos información del usuario
-echo "<input type=\"hidden\" name=\"usuario\" value=\"$id_user\">";
+ 
 if($validado){
     echo "Bienvenido al cuestionario<br>";
 // Ahora toca buscar las preguntas para ponerlas en pantalla dentro de un form
@@ -58,6 +59,8 @@ if($validado){
    }
    echo '<input type="submit"value="corregir">';
    echo '</form>';
+   
 }
 else {echo "Usuario o contraseña incorrecta";}
-$conexion->close();
+        
+        $conexion->close();
